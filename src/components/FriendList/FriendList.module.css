@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 100px;
+  gap: 20px;
+}
+
+.item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 250px;
+  border: 2px solid black;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
