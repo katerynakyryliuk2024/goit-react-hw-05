@@ -9,8 +9,8 @@ export default async function fetchMovies() {
   };
 
   const resp = await axios.get(
-    "'https://api.themoviedb.org/3/trending/movie/day?api_key=3c207d203abd462393fc77b05c81339a&include_adult=false&language=en-US&page=1",
+    "https://api.themoviedb.org/3/trending/movie/day?api_key=3c207d203abd462393fc77b05c81339a&include_adult=false&language=en-US&page=1",
     options
   );
-  return resp.data.result;
+  return resp.data.results;
 }

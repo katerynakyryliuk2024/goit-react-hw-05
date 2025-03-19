@@ -1,0 +1,12 @@
+.list {
+  list-style: disc;
+  margin-top: 15px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.movieName {
+  font-size: 20px;
+  font-weight: 500;
+}
