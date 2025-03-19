@@ -9,6 +9,7 @@ export default function HomePage() {
     async function getMovies() {
       try {
         const data = await fetchMovies();
+        console.log(data);
         setMovies(data);
       } catch (error) {
         console.log(error);
