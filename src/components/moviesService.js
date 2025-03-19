@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function fetchMovies() {
+export const fetchMovies = async () => {
   const options = {
     headers: {
       Authorization:
@@ -13,4 +13,9 @@ export default async function fetchMovies() {
     options
   );
   return resp.data.results;
-}
+};
+
+export const fetchMoviesById = async (movieId) => {
+  const resp = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`);
+  return resp.data;
+};
