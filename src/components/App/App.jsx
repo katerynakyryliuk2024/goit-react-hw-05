@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../../pages/HomePage";
 import MoviesPage from "../../pages/MoviesPage";
 import NotFoundPage from "../../pages/NotFoundPage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/:movieId" element={<MovieDetailsPage />} />
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
