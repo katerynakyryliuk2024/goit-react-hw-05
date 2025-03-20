@@ -6,6 +6,8 @@ import HomePage from "../../pages/HomePage";
 import MoviesPage from "../../pages/MoviesPage";
 import NotFoundPage from "../../pages/NotFoundPage";
 import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "../MovieCast/MovieCast";
+import MovieReviews from "../MovieReviews/MovieReviews";
 
 export default function App() {
   return (
@@ -13,7 +15,10 @@ export default function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/:movieId" element={<MovieDetailsPage />} />
+        <Route path="/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { fetchMoviesById } from "../../components/moviesService";
 import css from "./MovieDetailsPage.module.css";
 
@@ -65,6 +65,7 @@ export default function MovieDetailsPage() {
                 <NavLink to="reviews">Reviews</NavLink>
               </li>
             </ul>
+            <Outlet />
           </div>
         </div>
       )}
