@@ -13,7 +13,7 @@ export default function HomePage() {
         setIsLoading(true);
         setError(false);
         const data = await fetchMovies();
-        console.log(data);
+
         setMovies(data);
       } catch {
         setError(true);

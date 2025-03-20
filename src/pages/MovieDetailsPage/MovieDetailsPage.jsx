@@ -15,6 +15,7 @@ export default function MovieDetailsPage() {
         setIsLoading(true);
         setError(false);
         const data = await fetchMoviesById(movieId);
+        console.log(data);
         setMovie(data);
       } catch {
         setError(true);
@@ -41,21 +42,27 @@ export default function MovieDetailsPage() {
             <div className={css.movieInfo}>
               <h2 className={css.title}>{movie.title}</h2>
               <p className={css.userScore}>{`User Score ${
-                Math.round(movie.vote_average * 100) + "% "
+                Math.round(movie.vote_average * 10) + "% "
               }`}</p>
               <h3 className={css.secondaryTitle}>Overwiev</h3>
               <p className={css.overview}>{movie.overview}</p>
+              <h3>Genres</h3>
+              <ul className={css.genresList}>
+                {movie.genres.map((el) => (
+                  <li key={el.id}>{el.name}</li>
+                ))}
+              </ul>
             </div>
           </div>
 
           <div className={css.addInfo}>
             <h3>Additional Information</h3>
-            <ul>
+            <ul className={css.list}>
               <li>
-                <NavLink to="/cast">Cast</NavLink>
+                <NavLink to="cast">Cast</NavLink>
               </li>
               <li>
-                <NavLink></NavLink>
+                <NavLink to="reviews">Reviews</NavLink>
               </li>
             </ul>
           </div>
