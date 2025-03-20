@@ -41,5 +41,5 @@ export const fetchMovieCast = async (movieId) => {
     `https://api.themoviedb.org/3/movie/${movieId}/credits`,
     options
   );
-  return resp.data;
+  return resp.data.cast;
 };

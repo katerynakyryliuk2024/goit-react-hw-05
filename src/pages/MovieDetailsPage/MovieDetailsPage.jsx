@@ -15,7 +15,7 @@ export default function MovieDetailsPage() {
         setIsLoading(true);
         setError(false);
         const data = await fetchMoviesById(movieId);
-        console.log(data);
+
         setMovie(data);
       } catch {
         setError(true);
