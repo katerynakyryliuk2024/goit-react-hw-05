@@ -57,5 +57,5 @@ export const fetchMovieReview = async (movieId) => {
 https://api.themoviedb.org/3/movie/${movieId}/reviews`,
     options
   );
-  return resp.data;
+  return resp.data.results;
 };
