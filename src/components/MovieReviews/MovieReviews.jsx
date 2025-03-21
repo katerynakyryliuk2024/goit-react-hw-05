@@ -2,6 +2,7 @@ import css from "./MovieReviews.module.css";
 import { useEffect, useState } from "react";
 import { fetchMovieReview } from "../moviesService";
 import { useParams } from "react-router-dom";
+import { LiaPenSolid } from "react-icons/lia";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -32,8 +33,11 @@ export default function MovieReviews() {
       {error && <div>There was an error, please reload this page...</div>}
       {reviews.length > 0 ? (
         reviews.map((review) => (
-          <div key={review.id}>
-            <h2>{review.author}</h2>
+          <div key={review.id} className={css.container}>
+            <h2>
+              <LiaPenSolid />
+              {`Author: ${review.author}`}
+            </h2>
             <p>{review.content}</p>
           </div>
         ))
