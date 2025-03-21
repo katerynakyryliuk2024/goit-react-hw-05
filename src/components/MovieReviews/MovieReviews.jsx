@@ -16,7 +16,7 @@ export default function MovieReviews() {
         setIsLoading(true);
         setError(false);
         const data = await fetchMovieReview(movieId);
-        console.log(data);
+
         setReviews(data);
       } catch {
         setError(true);
