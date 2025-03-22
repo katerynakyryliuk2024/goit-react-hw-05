@@ -28,6 +28,14 @@ export default function MoviesPage() {
     setSearchParams(nextParams);
   };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    setSearchParams({
+      search: "",
+    });
+  };
+
   useEffect(() => {
     async function getSearchMovie() {
       try {
@@ -47,7 +55,16 @@ export default function MoviesPage() {
 
   return (
     <>
-      <input type="text" value={query} onChange={changeSearchtext} />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          value={query}
+          onChange={changeSearchtext}
+        />
+        <button type="submit">Login</button>
+      </form>
+
       {isLoading && <div>Loading...</div>}
       {error && <div>There was an error, please reload this page...</div>}
       {movies.length > 0 && <MovieList movies={movies} />}

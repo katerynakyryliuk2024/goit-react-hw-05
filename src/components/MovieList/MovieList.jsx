@@ -1,5 +1,5 @@
 import css from "./MovieList.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 
 const getLinkStyles = ({ isActive }) => {
@@ -7,11 +7,17 @@ const getLinkStyles = ({ isActive }) => {
 };
 
 export default function MovieList({ movies }) {
+  const location = useLocation();
+
   return (
     <ul className={css.list}>
       {movies.map((movie) => (
         <li key={movie.id} className={css.listEl}>
-          <NavLink to={`/${movie.id}`} className={getLinkStyles}>
+          <NavLink
+            to={`/${movie.id}`}
+            className={getLinkStyles}
+            state={location}
+          >
             {movie.title}
           </NavLink>
         </li>
