@@ -43,7 +43,7 @@ export default function MoviesPage() {
       }
     }
     getSearchMovie();
-  }, [query]);
+  }, [debouncedQuery]);
 
   return (
     <>
