@@ -11,29 +11,28 @@ export default function MoviesPage() {
   const [error, setError] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const [subMovie, setSubmovie] = useState("");
 
   const query = searchParams.get("query") ?? "";
 
   const [debouncedQuery] = useDebounce(query, 300);
 
   const changeSearchtext = (event) => {
-    const nextParams = new URLSearchParams(searchParams);
-
-    if (event.target.value !== "") {
-      nextParams.set("query", event.target.value);
-    } else {
-      nextParams.delete("query");
-    }
-
-    setSearchParams(nextParams);
+    setSubmovie(event.target.value);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    setSearchParams({
-      search: "",
-    });
+    const nextParams = new URLSearchParams(searchParams);
+
+    if (subMovie !== "") {
+      nextParams.set("query", subMovie);
+    } else {
+      nextParams.delete("query");
+    }
+
+    setSearchParams(nextParams);
   };
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function MoviesPage() {
         <input
           type="text"
           name="search"
-          value={query}
+          value={subMovie}
           onChange={changeSearchtext}
         />
         <button type="submit">Login</button>
