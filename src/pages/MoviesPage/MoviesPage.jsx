@@ -4,6 +4,7 @@ import { fetchSearchMovie } from "../../components/moviesService";
 // import css from './MoviesPage.module.css'
 import MovieList from "../../components/MovieList/MovieList";
 import { useDebounce } from "use-debounce";
+import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -54,14 +55,17 @@ export default function MoviesPage() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
           name="search"
           value={subMovie}
           onChange={changeSearchtext}
+          className={css.searchInput}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className={css.sbmButton}>
+          Login
+        </button>
       </form>
 
       {isLoading && <div>Loading...</div>}
