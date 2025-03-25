@@ -14,7 +14,7 @@ export default function MovieList({ movies }) {
       {movies.map((movie) => (
         <li key={movie.id} className={css.listEl}>
           <NavLink
-            to={`/${movie.id}`}
+            to={`/movies/${movie.id}`}
             className={getLinkStyles}
             state={location}
           >
